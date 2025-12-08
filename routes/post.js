@@ -1,8 +1,8 @@
 
 const express = require('express');
 const router = express.Router();
-const Post = require('../Models/post');
-const User = require('../Models/user');
+const Post = require('../models/post');
+const User = require('../models/user'); 
 const auth = require('../middleware/auth');
 
 // Create a new post
@@ -99,3 +99,4 @@ router.get('/topic/:topic/expired', auth, async (req, res) => {
   }
 });
 
+module.exports = router

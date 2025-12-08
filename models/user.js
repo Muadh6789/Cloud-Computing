@@ -1,11 +1,10 @@
 
 const mongoose = require('mongoose');
 
-const UserSchema = new mongoose.Schema({
-  name: String,
-  email: { type: String, unique: true },
-  password: String
+const userSchema = new mongoose.Schema({
+  username: { type: String, required: true, unique: true },
+  password: { type: String, required: true }
 });
 
-// This line prevents OverwriteModelError:
-module.exports = mongoose.models.User || mongoose.model('User', UserSchema);
+// Fix: Check if model exists before creating
+module.exports = mongoose.models.User || mongoose.model('User', userSchema);
